@@ -1,0 +1,27 @@
+link:-https://www.geeksforgeeks.org/problems/consecutive-elements2306/1
+#include <bits/stdc++.h>
+using namespace std;
+string removeDuplicates(string s){
+    stack<char>st;
+    st.push(s[0]);
+    
+    for(int i = 1;i<s.length();i++){
+        if(s[i] != st.top()) st.push(s[i]);
+    }
+    string n_s;
+    while(!st.empty()){
+        n_s += st.top();
+        st.pop();
+    }
+    reverse(n_s.begin(),n_s.end());
+    return n_s;
+}
+
+
+int main() {
+    string s = "aaabbcddaabffg";
+    cout<<s<<endl;
+    s = removeDuplicates(s);
+    cout<<s<<endl;
+    return 0;
+}
